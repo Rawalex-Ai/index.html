@@ -9,7 +9,7 @@
     body {
       margin: 0;
       height: 100vh;
-      background: #fff;
+      background: #ffffff;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,7 +21,6 @@
       text-align: center;
       max-width: 420px;
       padding: 30px;
-      animation: fade 1.2s ease;
     }
 
     h1 {
@@ -53,28 +52,15 @@
       cursor: pointer;
       background: #ff4d6d;
       color: white;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
-    }
-
-    @keyframes fade {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
-<body>
 
+<body>
   <div class="box" id="content">
     <h1>Hi Shivani,</h1>
 
-    <p>
-      I’ve thought a lot about how to say this.
-    </p>
+    <p>I’ve thought a lot about how to say this.</p>
 
     <p>
       You’re someone who makes moments feel lighter  
@@ -97,15 +83,10 @@
     function yes() {
       document.getElementById("content").innerHTML = `
         <h1>Thank you ❤️</h1>
-        <p>
-          This means more to me than you know.
-        </p>
-        <p>
-          I’m really glad it’s you.
-        </p>
+        <p>This means more to me than you know.</p>
+        <p>I’m really glad it’s you.</p>
       `;
     }
   </script>
-
-</body> 
+</body>
 </html>
