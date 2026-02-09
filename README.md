@@ -9,69 +9,82 @@
     body {
       margin: 0;
       height: 100vh;
-      background: linear-gradient(135deg, #ff5f6d, #ffc371);
+      background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Georgia', serif;
+      color: #fff;
       overflow: hidden;
-      color: white;
     }
 
-    .card {
+    .container {
       background: rgba(255, 255, 255, 0.15);
-      padding: 30px;
-      border-radius: 25px;
-      text-align: center;
+      backdrop-filter: blur(12px);
+      border-radius: 30px;
+      padding: 40px 30px;
       width: 90%;
-      max-width: 400px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      backdrop-filter: blur(10px);
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      animation: fadeIn 1.2s ease;
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 30px;
       margin-bottom: 10px;
     }
 
     p {
       font-size: 18px;
-      margin: 10px 0;
+      line-height: 1.6;
+      margin: 12px 0;
+    }
+
+    .buttons {
+      margin-top: 25px;
     }
 
     button {
-      margin: 15px;
-      padding: 14px 28px;
-      font-size: 18px;
+      padding: 14px 32px;
+      font-size: 17px;
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    button:hover {
-      transform: scale(1.1);
+      margin: 10px;
+      transition: all 0.3s ease;
     }
 
     #yes {
-      background: #2ecc71;
-      color: white;
+      background: linear-gradient(135deg, #43e97b, #38f9d7);
+      color: #0b3d2e;
+      font-weight: bold;
+    }
+
+    #yes:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
     }
 
     #no {
-      background: #e74c3c;
-      color: white;
+      background: rgba(255,255,255,0.3);
+      color: #fff;
       position: absolute;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .heart {
       position: absolute;
-      color: rgba(255,255,255,0.8);
-      font-size: 20px;
-      animation: floatUp 6s linear infinite;
+      font-size: 18px;
+      animation: float 6s linear infinite;
+      opacity: 0.8;
     }
 
-    @keyframes floatUp {
+    @keyframes float {
       from {
         transform: translateY(100vh);
         opacity: 1;
@@ -85,45 +98,57 @@
 </head>
 <body>
 
-  <div class="card" id="card">
-    <h1>Hi Shivani ❤️</h1>
-    <p>Every smile of yours makes my day brighter.</p>
-    <p>I have something important to ask you…</p>
+  <div class="container" id="box">
+    <h1>Dear Shivani ❤️</h1>
+    <p>
+      Some people make life brighter without even trying.
+    </p>
+    <p>
+      You are that person for me.
+    </p>
+    <p>
+      And today, I just want to ask you something from my heart…
+    </p>
     <p><strong>Will you be my Valentine? 🌹</strong></p>
 
-    <button id="yes" onclick="yesClicked()">Yes 💕</button>
-    <button id="no" onmouseover="moveNo()">No 🙈</button>
+    <div class="buttons">
+      <button id="yes" onclick="yesClicked()">Yes ❤️</button>
+      <button id="no" onmouseover="moveNo()">No</button>
+    </div>
   </div>
 
   <script>
     function moveNo() {
-      const noBtn = document.getElementById("no");
-      noBtn.style.left = Math.random() * 80 + "vw";
-      noBtn.style.top = Math.random() * 80 + "vh";
+      const no = document.getElementById("no");
+      no.style.left = Math.random() * 80 + "vw";
+      no.style.top = Math.random() * 80 + "vh";
     }
 
     function yesClicked() {
-      document.getElementById("card").innerHTML = `
-        <h1>She said YES 💖</h1>
-        <p>I knew it, Shivani 😍</p>
-        <p>You just made my heart the happiest.</p>
-        <p>Happy Valentine’s Day ❤️</p>
+      document.getElementById("box").innerHTML = `
+        <h1>She said YES ❤️</h1>
+        <p>
+          This moment means more to me than words can say.
+        </p>
+        <p>
+          Thank you for choosing me, Shivani.
+        </p>
+        <p>
+          Happy Valentine’s Day 💖
+        </p>
       `;
     }
 
-    // Floating hearts
+    // floating hearts
     setInterval(() => {
       const heart = document.createElement("div");
       heart.className = "heart";
-      heart.innerHTML = "💖";
+      heart.innerHTML = "❤️";
       heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (15 + Math.random() * 20) + "px";
+      heart.style.fontSize = (14 + Math.random() * 20) + "px";
       document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
-    }, 300);
+      setTimeout(() => heart.remove(), 6000);
+    }, 400);
   </script>
 
 </body>
